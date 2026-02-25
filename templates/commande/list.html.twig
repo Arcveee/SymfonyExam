@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+{% block body %}
+<h1>Mes commandes</h1>
+
+{% if commandes is empty %}
+    <div class="alert alert-info">
+        Vous n'avez pas encore passé de commande.
+    </div>
+    <a href="{{ path('commande_passer') }}" class="btn btn-primary">Passer une commande</a>
+{% else %}
+    {% for commande in commandes|reverse %}
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <strong>📦 Commande #{{ commande.id|slice(0, 8) }}</strong>
+            <span class="float-end">📅 {{ commande.date }}</span>
+        </div>
+        <div class="card-body">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for achat in commande.achats %}
+                    <tr>
+                        <td>{{ achat.produit }}</td>
+                        <td>{{ achat.qte }}</td>
+                        <td>{{ achat.prix|number_format(0, ',', ' ') }} FCFA</td>
+                        <td>{{ achat.total|number_format(0, ',', ' ') }} FCFA</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr class="table-active">
+                        <td colspan="3" class="text-end"><strong>Total de la commande:</strong></td>
+                        <td><strong class="text-primary">{{ commande.montant|number_format(0, ',', ' ') }} FCFA</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="mt-3">
+        <a href="{{ path('commande_passer') }}" class="btn btn-primary">Passer une nouvelle commande</a>
+    </div>
+{% endif %}
+{% endblock %}

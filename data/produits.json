@@ -1,0 +1,44 @@
+{
+    "1": {
+        "id": 1,
+        "libelle": "Smartphone",
+        "prix": 45000,
+        "qteStock": 47,
+        "categorie": "\u00c9lectronique"
+    },
+    "2": {
+        "id": 2,
+        "libelle": "\u00c9couteurs Bluetooth",
+        "prix": 8500,
+        "qteStock": 99,
+        "categorie": "\u00c9lectronique"
+    },
+    "3": {
+        "id": 3,
+        "libelle": "Laptop",
+        "prix": 125000,
+        "qteStock": 29,
+        "categorie": "Informatique"
+    },
+    "4": {
+        "id": 4,
+        "libelle": "Souris sans fil",
+        "prix": 3500,
+        "qteStock": 146,
+        "categorie": "Informatique"
+    },
+    "5": {
+        "id": 5,
+        "libelle": "Clavier m\u00e9canique",
+        "prix": 12000,
+        "qteStock": 75,
+        "categorie": "Informatique"
+    },
+    "6": {
+        "id": 6,
+        "libelle": "PHP pour les nuls",
+        "prix": 5500,
+        "qteStock": 195,
+        "categorie": "Livres"
+    }
+}
