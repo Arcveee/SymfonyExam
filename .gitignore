@@ -18,3 +18,9 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+# Ignore README and database files
+README.md
+INTERFACE.md
+/data/commandes.json
+/data/produits.json

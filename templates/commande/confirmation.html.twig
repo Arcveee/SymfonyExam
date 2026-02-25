@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de commande{% endblock %}
+
+{% block body %}
+<div class="text-center mb-4">
+    <div style="font-size: 4rem; color: #4caf50;">✅</div>
+    <h1>Commande passée avec succès!</h1>
+</div>
+
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <strong>📦 Commande #{{ commande.id|slice(0, 8) }}</strong>
+        <span class="float-end">📅 {{ commande.date }}</span>
+    </div>
+    <div class="card-body">
+        <h5 class="mb-3">Détails de votre commande:</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for achat in commande.achats %}
+                <tr>
+                    <td>{{ achat.produit }}</td>
+                    <td>{{ achat.qte }}</td>
+                    <td>{{ achat.prix|number_format(0, ',', ' ') }} FCFA</td>
+                    <td>{{ achat.total|number_format(0, ',', ' ') }} FCFA</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="table-active">
+                    <td colspan="3" class="text-end"><h5 class="mb-0">Total de la commande:</h5></td>
+                    <td><h5 class="mb-0 text-success">{{ commande.montant|number_format(0, ',', ' ') }} FCFA</h5></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ path('commande_passer') }}" class="btn btn-primary">Passer une nouvelle commande</a>
+    <a href="{{ path('app_home') }}" class="btn btn-secondary">Retour à l'accueil</a>
+</div>
+{% endblock %}

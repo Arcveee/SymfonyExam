@@ -66,7 +66,7 @@ class CommandeController extends AbstractController
         $this->saveProduits($produits);
 
         $this->addFlash('success', 'Commande passée avec succès!');
-        return $this->redirectToRoute('commande_list');
+        return $this->redirectToRoute('commande_passer');
     }
 
     #[Route('/commande/list', name: 'commande_list')]
